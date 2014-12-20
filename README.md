@@ -11,7 +11,7 @@ Using the `docker` command:
       -h "${CONTAINER}" \
       -v /memcachephp/ssl/certs \
       -v /memcachephp/ssl/private \
-      simpledrupalcloud/data:latest
+      simpledrupalcloud/data:dev
 
     CONTAINER="memcachephp" && sudo docker run \
       --name "${CONTAINER}" \
@@ -21,13 +21,14 @@ Using the `docker` command:
       --volumes-from memcachephpdata \
       -e SERVER_NAME="localhost" \
       -d \
-      simpledrupalcloud/memcachephp:latest
+      simpledrupalcloud/memcachephp:dev
 
 Using the `fig` command
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
+      && git checkout dev \
       && sudo fig up
 
 ## Connect directly to Memcached server by linking with another Docker container
@@ -37,7 +38,7 @@ Using the `fig` command
       -h "${CONTAINER}" \
       -v /memcachephp/ssl/certs \
       -v /memcachephp/ssl/private \
-      simpledrupalcloud/data:latest
+      simpledrupalcloud/data:dev
 
     CONTAINER="memcachephp" && sudo docker run \
       --name "${CONTAINER}" \
@@ -48,14 +49,15 @@ Using the `fig` command
       --link memcached:memcached \
       -e SERVER_NAME="localhost" \
       -d \
-      simpledrupalcloud/memcachephp:latest
+      simpledrupalcloud/memcachephp:dev
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t simpledrupalcloud/memcachephp:latest . \
+      && git checkout dev \
+      && sudo docker build -t simpledrupalcloud/memcachephp:dev . \
       && cd -
 
 ## Back up memcache.php data
@@ -64,7 +66,7 @@ Using the `fig` command
       --rm \
       --volumes-from memcachephpdata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:latest tar czvf /backup/memcachephpdata.tar.gz /memcachephp/ssl/certs /memcachephp/ssl/private
+      simpledrupalcloud/data:dev tar czvf /backup/memcachephpdata.tar.gz /memcachephp/ssl/certs /memcachephp/ssl/private
 
 ## Restore memcache.php data from a backup
 
@@ -72,7 +74,7 @@ Using the `fig` command
       --rm \
       --volumes-from memcachephpdata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:latest tar xzvf /backup/memcachephpdata.tar.gz
+      simpledrupalcloud/data:dev tar xzvf /backup/memcachephpdata.tar.gz
 
 ## License
 
