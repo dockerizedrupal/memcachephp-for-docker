@@ -1,0 +1,16 @@
+<IfModule mod_ssl.c>
+  <VirtualHost *:443>
+    DocumentRoot /memcachephp/data
+
+    <Directory "/memcachephp/data">
+      Options Indexes FollowSymLinks MultiViews
+      AllowOverride All
+      Order allow,deny
+      Allow from all
+    </Directory>
+
+    SSLEngine on
+    SSLCertificateFile /memcachephp/ssl/certs/memcachephp.crt
+    SSLCertificateKeyFile /memcachephp/ssl/private/memcachephp.key
+  </VirtualHost>
+</IfModule>
