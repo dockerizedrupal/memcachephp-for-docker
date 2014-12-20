@@ -3,8 +3,8 @@ class memcachephp {
     require memcachephp::httpd::ssl
   }
 
-  file { '/memcachephp/data/etc/config.local.php':
+  file { '/memcachephp/data/index.php':
     ensure => present,
-    content => template('memcachephp/config.local.php.erb')
+    content => template('memcachephp/memcache.php.erb')
   }
 }
