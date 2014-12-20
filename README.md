@@ -1,4 +1,4 @@
-# docker-memcache.php
+# docker-memcachephp
 
 A [Docker](https://docker.com/) container for [memcache.php](https://github.com/lagged/memcache.php).
 
