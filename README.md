@@ -20,6 +20,8 @@ Using the `docker` command:
       -p 443:443 \
       --volumes-from memcachephpdata \
       -e SERVER_NAME="localhost" \
+      -e USERNAME="root" \
+      -e PASSWORD="root" \
       -d \
       simpledrupalcloud/memcachephp:latest
 
@@ -47,6 +49,8 @@ Using the `fig` command
       --volumes-from memcachephpdata \
       --link memcached:memcached \
       -e SERVER_NAME="localhost" \
+      -e USERNAME="root" \
+      -e PASSWORD="root" \
       -d \
       simpledrupalcloud/memcachephp:latest
 

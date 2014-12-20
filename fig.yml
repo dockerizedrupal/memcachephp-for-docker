@@ -8,6 +8,8 @@ memcachephp:
     - memcachephpdata
   environment:
     - SERVER_NAME=localhost
+    - USERNAME=root
+    - PASSWORD=root
 memcachephpdata:
   image: simpledrupalcloud/data:latest
   hostname: memcachephpdata
