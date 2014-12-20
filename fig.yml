@@ -1,5 +1,5 @@
 memcachephp:
-  image: simpledrupalcloud/memcachephp:dev
+  image: simpledrupalcloud/memcachephp:latest
   hostname: memcachephp
   ports:
     - "80:80"
@@ -9,7 +9,7 @@ memcachephp:
   environment:
     - SERVER_NAME=localhost
 memcachephpdata:
-  image: simpledrupalcloud/data:dev
+  image: simpledrupalcloud/data:latest
   hostname: memcachephpdata
   volumes:
     - /memcachephp/ssl/certs
