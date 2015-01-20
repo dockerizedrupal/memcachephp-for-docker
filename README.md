@@ -70,7 +70,7 @@ Using the `fig` command
       --rm \
       --volumes-from memcachephpdata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:dev tar czvf /backup/memcachephpdata.tar.gz /memcachephp/ssl/certs /memcachephp/ssl/private
+      simpledrupalcloud/base:dev tar czvf /backup/memcachephpdata.tar.gz /memcachephp/ssl/certs /memcachephp/ssl/private
 
 ## Restore memcache.php data from a backup
 
@@ -78,7 +78,7 @@ Using the `fig` command
       --rm \
       --volumes-from memcachephpdata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:dev tar xzvf /backup/memcachephpdata.tar.gz
+      simpledrupalcloud/base:dev tar xzvf /backup/memcachephpdata.tar.gz
 
 ## License
 
