@@ -14,5 +14,4 @@ memcachephpdata:
   image: simpledrupalcloud/data:latest
   hostname: memcachephpdata
   volumes:
-    - /memcachephp/ssl/certs
-    - /memcachephp/ssl/private
+    - /memcachephp

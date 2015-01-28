@@ -1,10 +1,5 @@
 <VirtualHost *:80>
-  DocumentRoot /memcachephp/data
-
-  <Directory "/memcachephp/data">
-    Options Indexes FollowSymLinks MultiViews
-    AllowOverride All
-    Order allow,deny
-    Allow from all
-  </Directory>
+  ServerAlias *
+  RewriteEngine On
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}$1 [redirect=301]
 </VirtualHost>
