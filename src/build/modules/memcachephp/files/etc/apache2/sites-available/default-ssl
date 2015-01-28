@@ -1,8 +1,8 @@
 <IfModule mod_ssl.c>
   <VirtualHost *:443>
-    DocumentRoot /memcachephp/data
+    DocumentRoot /var/www
 
-    <Directory "/memcachephp/data">
+    <Directory "/var/www">
       Options Indexes FollowSymLinks MultiViews
       AllowOverride All
       Order allow,deny
