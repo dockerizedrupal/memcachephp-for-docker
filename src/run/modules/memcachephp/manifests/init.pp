@@ -3,7 +3,7 @@ class memcachephp {
     require memcachephp::httpd::ssl
   }
 
-  file { '/memcachephp/data/index.php':
+  file { '/var/www/index.php':
     ensure => present,
     content => template('memcachephp/memcache.php.erb')
   }

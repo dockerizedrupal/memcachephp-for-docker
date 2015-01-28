@@ -12,8 +12,7 @@ RUN apt-get update
 RUN /src/build.sh
 RUN /src/clean.sh
 
-VOLUME ["/memcachephp/ssl/certs"]
-VOLUME ["/memcachephp/ssl/private"]
+VOLUME ["/memcachephp"]
 
 EXPOSE 80
 EXPOSE 443

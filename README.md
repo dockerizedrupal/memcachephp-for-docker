@@ -9,8 +9,7 @@ Using the `docker` command:
     CONTAINER="memcachephpdata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /memcachephp/ssl/certs \
-      -v /memcachephp/ssl/private \
+      -v /memcachephp \
       simpledrupalcloud/data:dev
 
     CONTAINER="memcachephp" && sudo docker run \
@@ -38,8 +37,7 @@ Using the `fig` command
     CONTAINER="memcachephpdata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /memcachephp/ssl/certs \
-      -v /memcachephp/ssl/private \
+      -v /memcachephp \
       simpledrupalcloud/data:dev
 
     CONTAINER="memcachephp" && sudo docker run \
@@ -70,7 +68,7 @@ Using the `fig` command
       --rm \
       --volumes-from memcachephpdata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:dev tar czvf /backup/memcachephpdata.tar.gz /memcachephp/ssl/certs /memcachephp/ssl/private
+      simpledrupalcloud/base:dev tar czvf /backup/memcachephpdata.tar.gz /memcachephp
 
 ## Restore memcache.php data from a backup
 

@@ -2,19 +2,15 @@ class memcachephp::httpd {
   require memcachephp::httpd::packages
   require memcachephp::httpd::supervisor
 
-  exec { 'mkdir -p /memcachephp/data':
-    path => ['/bin']
-  }
-
-  exec { 'usermod -d /memcachephp/data www-data':
-    path => ['/usr/sbin']
-  }
-
   exec { '/bin/bash -c "a2enmod actions"': }
   exec { '/bin/bash -c "a2enmod fastcgi"': }
   exec { '/bin/bash -c "a2enmod vhost_alias"': }
   exec { '/bin/bash -c "a2enmod rewrite"': }
   exec { '/bin/bash -c "a2enmod ssl"': }
+
+  file { '/var/www/index.html':
+    ensure => absent
+  }
 
   file { '/etc/apache2/sites-enabled/000-default':
     ensure => absent
