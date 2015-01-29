@@ -7,6 +7,7 @@ class memcachephp::httpd {
   exec { '/bin/bash -c "a2enmod vhost_alias"': }
   exec { '/bin/bash -c "a2enmod rewrite"': }
   exec { '/bin/bash -c "a2enmod ssl"': }
+  exec { '/bin/bash -c "a2enmod headers"': }
 
   file { '/var/www/index.html':
     ensure => absent
