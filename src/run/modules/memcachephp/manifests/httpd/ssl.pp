@@ -1,4 +1,4 @@
-class memcachedphp::memcachedphp::ssl {
+class memcachedphp::httpd::ssl {
   exec { 'mkdir -p /memcachedphp/ssl':
     path => ['/bin']
   }
