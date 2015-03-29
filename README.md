@@ -10,7 +10,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /memcachephp \
-      simpledrupalcloud/data:latest
+      viljaste/data:latest
 
     CONTAINER="memcachephp" && sudo docker run \
       --name "${CONTAINER}" \
@@ -22,7 +22,7 @@ Using the `docker` command:
       -e USERNAME="root" \
       -e PASSWORD="root" \
       -d \
-      simpledrupalcloud/memcachephp:latest
+      viljaste/memcachephp:latest
 
 Using the `fig` command
 
@@ -37,7 +37,7 @@ Using the `fig` command
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /memcachephp \
-      simpledrupalcloud/data:latest
+      viljaste/data:latest
 
     CONTAINER="memcachephp" && sudo docker run \
       --name "${CONTAINER}" \
@@ -50,14 +50,14 @@ Using the `fig` command
       -e USERNAME="root" \
       -e PASSWORD="root" \
       -d \
-      simpledrupalcloud/memcachephp:latest
+      viljaste/memcachephp:latest
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t simpledrupalcloud/memcachephp:latest . \
+      && sudo docker build -t viljaste/memcachephp:latest . \
       && cd -
 
 ## Back up memcache.php data
@@ -66,7 +66,7 @@ Using the `fig` command
       --rm \
       --volumes-from memcachephpdata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:latest tar czvf /backup/memcachephpdata.tar.gz /memcachephp
+      viljaste/base:latest tar czvf /backup/memcachephpdata.tar.gz /memcachephp
 
 ## Restore memcache.php data from a backup
 
@@ -74,7 +74,7 @@ Using the `fig` command
       --rm \
       --volumes-from memcachephpdata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:latest tar xzvf /backup/memcachephpdata.tar.gz
+      viljaste/base:latest tar xzvf /backup/memcachephpdata.tar.gz
 
 ## License
 
