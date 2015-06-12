@@ -19,17 +19,19 @@ Using the `docker` command:
       -p 443:443 \
       --volumes-from memcachephpdata \
       -e SERVER_NAME="localhost" \
+      -e TIMEOUT="300" \
+      -e PROTOCOLS="https" \
       -e USERNAME="root" \
       -e PASSWORD="root" \
       -d \
       viljaste/memcachephp:latest
 
-Using the `fig` command
+Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-memcachephp.git "${TMP}" \
+      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo fig up
+      && sudo docker-compose up
 
 ## Connect directly to Memcached server by linking with another Docker container
 
@@ -47,6 +49,8 @@ Using the `fig` command
       --volumes-from memcachephpdata \
       --link memcached:memcached \
       -e SERVER_NAME="localhost" \
+      -e TIMEOUT="300" \
+      -e PROTOCOLS="https" \
       -e USERNAME="root" \
       -e PASSWORD="root" \
       -d \
@@ -55,26 +59,10 @@ Using the `fig` command
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-memcachephp.git "${TMP}" \
+      && git clone GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker build -t viljaste/memcachephp:latest . \
       && cd -
-
-## Back up memcache.php data
-
-    sudo docker run \
-      --rm \
-      --volumes-from memcachephpdata \
-      -v $(pwd):/backup \
-      viljaste/base:latest tar czvf /backup/memcachephpdata.tar.gz /memcachephp
-
-## Restore memcache.php data from a backup
-
-    sudo docker run \
-      --rm \
-      --volumes-from memcachephpdata \
-      -v $(pwd):/backup \
-      viljaste/base:latest tar xzvf /backup/memcachephpdata.tar.gz
 
 ## License
 

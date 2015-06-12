@@ -1,0 +1,19 @@
+memcachephp:
+  image: viljaste/memcachephp:latest
+  hostname: memcachephp
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes_from:
+    - memcachephpdata
+  environment:
+    - SERVER_NAME=localhost
+    - TIMEOUT=300
+    - PROTOCOLS=https
+    - USERNAME=root
+    - PASSWORD=root
+memcachephpdata:
+  image: viljaste/data:latest
+  hostname: memcachephpdata
+  volumes:
+    - /memcachephp
