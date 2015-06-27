@@ -20,7 +20,7 @@ Using the `docker` command:
       --volumes-from memcachephpdata \
       -e SERVER_NAME="localhost" \
       -e TIMEOUT="300" \
-      -e PROTOCOLS="https" \
+      -e PROTOCOLS="https,http" \
       -e USERNAME="root" \
       -e PASSWORD="root" \
       -d \
@@ -50,7 +50,7 @@ Using the `docker-compose` command
       --link memcached:memcached \
       -e SERVER_NAME="localhost" \
       -e TIMEOUT="300" \
-      -e PROTOCOLS="https" \
+      -e PROTOCOLS="https,http" \
       -e USERNAME="root" \
       -e PASSWORD="root" \
       -d \

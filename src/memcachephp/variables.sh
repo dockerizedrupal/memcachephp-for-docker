@@ -30,7 +30,7 @@ fi
 export FACTER_TIMEOUT="${TIMEOUT}"
 
 if [ -z "${PROTOCOLS}" ]; then
-  PROTOCOLS="https"
+  PROTOCOLS="https,http"
 fi
 
 PROTOCOLS=$(echo "${PROTOCOLS}" | tr "," "\n")
