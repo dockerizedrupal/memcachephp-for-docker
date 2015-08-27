@@ -10,7 +10,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /memcachephp \
-      viljaste/data:latest
+      dockerizedrupal/data:latest
 
     CONTAINER="memcachephp" && sudo docker run \
       --name "${CONTAINER}" \
@@ -24,12 +24,12 @@ Using the `docker` command:
       -e USERNAME="root" \
       -e PASSWORD="root" \
       -d \
-      viljaste/memcachephp:latest
+      dockerizedrupal/memcachephp:latest
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
-      && GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-memcachephp.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
       && sudo docker-compose up
 
@@ -39,7 +39,7 @@ Using the `docker-compose` command
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /memcachephp \
-      viljaste/data:latest
+      dockerizedrupal/data:latest
 
     CONTAINER="memcachephp" && sudo docker run \
       --name "${CONTAINER}" \
@@ -54,14 +54,14 @@ Using the `docker-compose` command
       -e USERNAME="root" \
       -e PASSWORD="root" \
       -d \
-      viljaste/memcachephp:latest
+      dockerizedrupal/memcachephp:latest
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
-      && git clone GIT_SSL_NO_VERIFY=true git clone https://git.beyondcloud.io/viljaste/docker-memcachephp.git "${TMP}" \
+      && git clone https://github.com/dockerizedrupal/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t viljaste/memcachephp:latest . \
+      && sudo docker build -t dockerizedrupal/memcachephp:latest . \
       && cd -
 
 ## License
