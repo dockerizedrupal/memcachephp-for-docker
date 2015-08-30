@@ -5,15 +5,15 @@ memcachephp:
     - "80:80"
     - "443:443"
   volumes_from:
-    - memcachephpdata
+    - memcachephp-data
   environment:
     - SERVER_NAME=localhost
     - TIMEOUT=300
     - PROTOCOLS=https,http
     - USERNAME=root
     - PASSWORD=root
-memcachephpdata:
+memcachephp-data:
   image: dockerizedrupal/data:latest
-  hostname: memcachephpdata
+  hostname: memcachephp-data
   volumes:
     - /memcachephp
