@@ -1,5 +1,5 @@
 memcachephp:
-  image: dockerizedrupal/memcachephp:latest
+  image: dockerizedrupal/memcachephp:1.0.1
   hostname: memcachephp
   ports:
     - "80:80"
@@ -13,7 +13,7 @@ memcachephp:
     - USERNAME=root
     - PASSWORD=root
 memcachephp-data:
-  image: dockerizedrupal/data:latest
+  image: dockerizedrupal/data:1.0.2
   hostname: memcachephp-data
   volumes:
     - /memcachephp

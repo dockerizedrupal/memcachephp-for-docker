@@ -1,5 +1,5 @@
 class memcachephp {
-  include memcachephp::httpd
+  include memcachephp::apache
 
   file { '/var/www/index.php':
     ensure => present,

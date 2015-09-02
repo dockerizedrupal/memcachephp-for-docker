@@ -1,4 +1,4 @@
-class memcachephp::httpd::ssl {
+class memcachephp::apache::ssl {
   bash_exec { 'mkdir -p /memcachephp/ssl': }
 
   bash_exec { 'mkdir -p /memcachephp/ssl/private':

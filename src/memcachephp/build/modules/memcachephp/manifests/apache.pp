@@ -1,6 +1,6 @@
-class memcachephp::httpd {
-  require memcachephp::httpd::packages
-  require memcachephp::httpd::supervisor
+class memcachephp::apache {
+  require memcachephp::apache::packages
+  require memcachephp::apache::supervisor
 
   bash_exec { 'a2enmod actions': }
   bash_exec { 'a2enmod proxy_fcgi': }

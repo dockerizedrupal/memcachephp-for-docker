@@ -1,4 +1,4 @@
-class memcachephp::httpd::packages {
+class memcachephp::apache::packages {
   package {[
       'apache2'
     ]:

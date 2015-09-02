@@ -1,4 +1,4 @@
-class memcachephp::httpd::timeout {
+class memcachephp::apache::timeout {
   file { '/etc/apache2/conf-available/timeout.conf':
     ensure => present,
     content => template('memcachephp/timeout.conf.erb'),

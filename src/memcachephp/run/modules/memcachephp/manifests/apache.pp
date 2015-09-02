@@ -1,10 +1,10 @@
-class memcachephp::httpd {
-  include memcachephp::httpd::server_name
-  include memcachephp::httpd::timeout
+class memcachephp::apache {
+  include memcachephp::apache::server_name
+  include memcachephp::apache::timeout
 
   if $http and $https {
     if ! file_exists('/memcachephp/ssl/certs/memcachephp.crt') {
-      require memcachephp::httpd::ssl
+      require memcachephp::apache::ssl
     }
 
     file { '/etc/apache2/sites-available/http_https.conf':
@@ -46,7 +46,7 @@ class memcachephp::httpd {
   }
   elsif $https {
     if ! file_exists('/memcachephp/ssl/certs/memcachephp.crt') {
-      require memcachephp::httpd::ssl
+      require memcachephp::apache::ssl
     }
 
     file { '/etc/apache2/sites-available/https.conf':

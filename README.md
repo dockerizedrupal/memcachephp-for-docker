@@ -10,7 +10,7 @@ Using the `docker` command:
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /memcachephp \
-      dockerizedrupal/data:latest
+      dockerizedrupal/data:1.0.2
 
     CONTAINER="memcachephp" && sudo docker run \
       --name "${CONTAINER}" \
@@ -24,13 +24,14 @@ Using the `docker` command:
       -e USERNAME="root" \
       -e PASSWORD="root" \
       -d \
-      dockerizedrupal/memcachephp:latest
+      dockerizedrupal/memcachephp:1.0.1
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
+      && git checkout 1.0.1 \
       && sudo docker-compose up
 
 ## Connect directly to Memcached server by linking with another Docker container
@@ -39,7 +40,7 @@ Using the `docker-compose` command
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /memcachephp \
-      dockerizedrupal/data:latest
+      dockerizedrupal/data:1.0.2
 
     CONTAINER="memcachephp" && sudo docker run \
       --name "${CONTAINER}" \
@@ -54,14 +55,15 @@ Using the `docker-compose` command
       -e USERNAME="root" \
       -e PASSWORD="root" \
       -d \
-      dockerizedrupal/memcachephp:latest
+      dockerizedrupal/memcachephp:1.0.1
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t dockerizedrupal/memcachephp:latest . \
+      && git checkout 1.0.1 \
+      && sudo docker build -t dockerizedrupal/memcachephp:1.0.1 . \
       && cd -
 
 ## License

@@ -1,4 +1,4 @@
-class memcachephp::httpd::server_name {
+class memcachephp::apache::server_name {
   file { '/etc/apache2/conf-available/server_name.conf':
     ensure => present,
     content => template('memcachephp/server_name.conf.erb'),
