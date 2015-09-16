@@ -25,14 +25,14 @@ Using the `docker` command:
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/memcachephp:1.0.6
+      dockerizedrupal/memcachephp:1.0.7
 
 Using the `docker-compose` command
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.5 \
+      && git checkout 1.0.7 \
       && sudo docker-compose up
 
 ## Connect directly to Memcached server by linking with another Docker container
@@ -57,15 +57,15 @@ Using the `docker-compose` command
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/memcachephp:1.0.6
+      dockerizedrupal/memcachephp:1.0.7
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.5 \
-      && sudo docker build -t dockerizedrupal/memcachephp:1.0.6 . \
+      && git checkout 1.0.7 \
+      && sudo docker build -t dockerizedrupal/memcachephp:1.0.7 . \
       && cd -
 
 ## License
