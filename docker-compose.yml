@@ -1,5 +1,5 @@
 memcachephp:
-  image: dockerizedrupal/memcachephp:1.0.3
+  image: dockerizedrupal/memcachephp:1.0.4
   hostname: memcachephp
   ports:
     - "80:80"
