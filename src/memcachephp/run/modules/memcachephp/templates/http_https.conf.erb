@@ -3,6 +3,13 @@
 
     <Directory "/var/www">
       AllowOverride All
+<% if @http_basic_auth_password and !@http_basic_auth_password.empty? -%>
+      AuthType Basic
+      AuthName "Authentication Required"
+      AuthUserFile "/etc/htpasswd/.htpasswd"
+      Require valid-user
+<% else -%>
       Require all granted
+<% end -%>
     </Directory>
 </VirtualHost>

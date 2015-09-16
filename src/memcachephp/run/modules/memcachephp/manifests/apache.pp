@@ -2,6 +2,10 @@ class memcachephp::apache {
   include memcachephp::apache::server_name
   include memcachephp::apache::timeout
 
+  if $http_basic_auth_password {
+    include memcachephp::apache::http_basic_auth
+  }
+
   if $http and $https {
     if ! file_exists('/memcachephp/ssl/certs/memcachephp.crt') {
       require memcachephp::apache::ssl

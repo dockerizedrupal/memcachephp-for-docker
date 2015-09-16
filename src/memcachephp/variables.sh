@@ -5,18 +5,6 @@ MEMCACHED_PORT="$(echo "${MEMCACHED_PORT}" | sed 's/tcp:\/\///')"
 export FACTER_MEMCACHED_HOST="$(echo "${MEMCACHED_PORT}" | cut -d ":" -f1)"
 export FACTER_MEMCACHED_PORT="$(echo "${MEMCACHED_PORT}" | cut -d ":" -f2)"
 
-if [ -z "${USERNAME}" ]; then
-  USERNAME=""
-fi
-
-export FACTER_USERNAME="${USERNAME}"
-
-if [ -z "${PASSWORD}" ]; then
-  PASSWORD=""
-fi
-
-export FACTER_PASSWORD="${PASSWORD}"
-
 if [ -z "${SERVER_NAME}" ]; then
   SERVER_NAME="localhost"
 fi
@@ -50,3 +38,11 @@ for PROTOCOL in ${PROTOCOLS}; do
     export FACTER_HTTPS="1"
   fi
 done
+
+if [ -z "${HTTP_BASIC_AUTH_USERNAME}" ]; then
+  HTTP_BASIC_AUTH_USERNAME="admin"
+fi
+
+export FACTER_HTTP_BASIC_AUTH_USERNAME="${HTTP_BASIC_AUTH_USERNAME}"
+
+export FACTER_HTTP_BASIC_AUTH_PASSWORD="${HTTP_BASIC_AUTH_PASSWORD}"
