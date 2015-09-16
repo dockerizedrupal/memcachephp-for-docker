@@ -1,5 +1,6 @@
 class memcachephp {
   include memcachephp::apache
+  include memcachephp::timezone
 
   file { '/var/www/index.php':
     ensure => present,

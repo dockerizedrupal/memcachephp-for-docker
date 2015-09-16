@@ -1,5 +1,5 @@
 memcachephp:
-  image: dockerizedrupal/memcachephp:1.0.2
+  image: dockerizedrupal/memcachephp:1.0.3
   hostname: memcachephp
   ports:
     - "80:80"
@@ -8,6 +8,7 @@ memcachephp:
     - memcachephp-data
   environment:
     - SERVER_NAME=localhost
+    - TIMEZONE=Etc/UTC
     - TIMEOUT=300
     - PROTOCOLS=https,http
     - USERNAME=root
