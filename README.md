@@ -22,10 +22,10 @@ Using the `docker` command:
       -e TIMEZONE="Etc/UTC" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
-      -e HTTP_BASIC_AUTH_USERNAME="admin" \
+      -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/memcachephp:1.0.5
+      dockerizedrupal/memcachephp:1.0.6
 
 Using the `docker-compose` command
 
@@ -54,10 +54,10 @@ Using the `docker-compose` command
       -e TIMEZONE="Etc/UTC" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
-      -e HTTP_BASIC_AUTH_USERNAME="admin" \
+      -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/memcachephp:1.0.5
+      dockerizedrupal/memcachephp:1.0.6
 
 ## Build the image
 
@@ -65,7 +65,7 @@ Using the `docker-compose` command
       && git clone https://github.com/dockerizedrupal/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
       && git checkout 1.0.5 \
-      && sudo docker build -t dockerizedrupal/memcachephp:1.0.5 . \
+      && sudo docker build -t dockerizedrupal/memcachephp:1.0.6 . \
       && cd -
 
 ## License

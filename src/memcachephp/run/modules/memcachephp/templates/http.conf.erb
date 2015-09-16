@@ -1,15 +1,15 @@
 <VirtualHost *:80>
-    DocumentRoot /var/www
+  DocumentRoot /var/www
 
-    <Directory "/var/www">
-      AllowOverride All
+  <Directory "/var/www">
+    AllowOverride All
 <% if @http_basic_auth_password and !@http_basic_auth_password.empty? -%>
-      AuthType Basic
-      AuthName "Authentication Required"
-      AuthUserFile "/etc/htpasswd/.htpasswd"
-      Require valid-user
+    AuthType Basic
+    AuthName "Authentication Required"
+    AuthUserFile "/etc/htpasswd/.htpasswd"
+    Require valid-user
 <% else -%>
-      Require all granted
+    Require all granted
 <% end -%>
-    </Directory>
+  </Directory>
 </VirtualHost>

@@ -1,5 +1,5 @@
 memcachephp:
-  image: dockerizedrupal/memcachephp:1.0.5
+  image: dockerizedrupal/memcachephp:1.0.6
   hostname: memcachephp
   ports:
     - "80:80"
@@ -11,7 +11,7 @@ memcachephp:
     - TIMEZONE=Etc/UTC
     - TIMEOUT=300
     - PROTOCOLS=https,http
-    - HTTP_BASIC_AUTH_USERNAME=admin
+    - HTTP_BASIC_AUTH_USERNAME=container
     - HTTP_BASIC_AUTH_PASSWORD=
 memcachephp-data:
   image: dockerizedrupal/data:1.0.3
