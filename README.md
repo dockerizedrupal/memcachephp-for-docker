@@ -4,8 +4,6 @@ A [Docker](https://docker.com/) container for memcache.php.
 
 ## Run the container
 
-Using the `docker` command:
-
     CONTAINER="memcachephp-data" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
@@ -25,15 +23,7 @@ Using the `docker` command:
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/memcachephp:1.0.7
-
-Using the `docker-compose` command
-
-    TMP="$(mktemp -d)" \
-      && git clone https://github.com/dockerizedrupal/docker-memcachephp.git "${TMP}" \
-      && cd "${TMP}" \
-      && git checkout 1.0.7 \
-      && sudo docker-compose up
+      dockerizedrupal/memcachephp:1.0.8
 
 ## Connect directly to Memcached server by linking with another Docker container
 
@@ -57,16 +47,20 @@ Using the `docker-compose` command
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/memcachephp:1.0.7
+      dockerizedrupal/memcachephp:1.0.8
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.7 \
-      && sudo docker build -t dockerizedrupal/memcachephp:1.0.7 . \
+      && git checkout 1.0.8 \
+      && sudo docker build -t dockerizedrupal/memcachephp:1.0.8 . \
       && cd -
+
+## Changing the container behaviour on runtime through environment variables
+
+    // TODO
 
 ## License
 
