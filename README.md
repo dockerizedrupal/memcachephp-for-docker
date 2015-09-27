@@ -20,6 +20,8 @@ A Docker image for Harun Yayli's memcache.php that is used in the [Dockerized Dr
       -e TIMEZONE="Etc/UTC" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
+      -e MEMCACHED_HOST="" \
+      -e MEMCACHED_PORT="11211" \
       -e HTTP_BASIC_AUTH="Off" \
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \

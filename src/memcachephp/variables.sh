@@ -1,9 +1,19 @@
 #!/usr/bin/env bash
 
-MEMCACHED_PORT="$(echo "${MEMCACHED_PORT}" | sed 's/tcp:\/\///')"
+if [ -n "${MEMCACHED_HOST}" ]; then
+  export FACTER_MEMCACHED_HOST="${MEMCACHED_HOST}"
 
-export FACTER_MEMCACHED_HOST="$(echo "${MEMCACHED_PORT}" | cut -d ":" -f1)"
-export FACTER_MEMCACHED_PORT="$(echo "${MEMCACHED_PORT}" | cut -d ":" -f2)"
+  if [ -z "${MEMCACHED_PORT}" ]; then
+    MEMCACHED_PORT="11211"
+  fi
+
+  export FACTER_MEMCACHED_PORT="${MEMCACHED_PORT}"
+else
+  MEMCACHED_PORT="$(echo "${MEMCACHED_PORT}" | sed 's/tcp:\/\///')"
+
+  export FACTER_MEMCACHED_HOST="$(echo "${MEMCACHED_PORT}" | cut -d ":" -f1)"
+  export FACTER_MEMCACHED_PORT="$(echo "${MEMCACHED_PORT}" | cut -d ":" -f2)"
+fi
 
 if [ -z "${SERVER_NAME}" ]; then
   SERVER_NAME="localhost"
