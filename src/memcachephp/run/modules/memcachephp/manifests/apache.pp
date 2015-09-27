@@ -2,7 +2,7 @@ class memcachephp::apache {
   include memcachephp::apache::server_name
   include memcachephp::apache::timeout
 
-  if $http_basic_auth_password {
+  if $http_basic_auth == "On" {
     include memcachephp::apache::http_basic_auth
   }
 

@@ -1,6 +1,6 @@
 # docker-memcachephp
 
-A [Docker](https://docker.com/) container for memcache.php.
+A Docker image for Harun Yayli's memcache.php that is used in the [Dockerized Drupal](https://dockerizedrupal.com/) project.
 
 ## Run the container
 
@@ -8,7 +8,7 @@ A [Docker](https://docker.com/) container for memcache.php.
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /memcachephp \
-      dockerizedrupal/data:1.0.3
+      dockerizedrupal/data:1.1.0
 
     CONTAINER="memcachephp" && sudo docker run \
       --name "${CONTAINER}" \
@@ -20,10 +20,11 @@ A [Docker](https://docker.com/) container for memcache.php.
       -e TIMEZONE="Etc/UTC" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
+      -e HTTP_BASIC_AUTH="Off" \
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/memcachephp:1.0.8
+      dockerizedrupal/memcachephp:1.1.0
 
 ## Connect directly to Memcached server by linking with another Docker container
 
@@ -31,7 +32,7 @@ A [Docker](https://docker.com/) container for memcache.php.
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
       -v /memcachephp \
-      dockerizedrupal/data:1.0.3
+      dockerizedrupal/data:1.1.0
 
     CONTAINER="memcachephp" && sudo docker run \
       --name "${CONTAINER}" \
@@ -44,18 +45,19 @@ A [Docker](https://docker.com/) container for memcache.php.
       -e TIMEZONE="Etc/UTC" \
       -e TIMEOUT="300" \
       -e PROTOCOLS="https,http" \
+      -e HTTP_BASIC_AUTH="Off" \
       -e HTTP_BASIC_AUTH_USERNAME="container" \
       -e HTTP_BASIC_AUTH_PASSWORD="" \
       -d \
-      dockerizedrupal/memcachephp:1.0.8
+      dockerizedrupal/memcachephp:1.1.0
 
 ## Build the image
 
     TMP="$(mktemp -d)" \
       && git clone https://github.com/dockerizedrupal/docker-memcachephp.git "${TMP}" \
       && cd "${TMP}" \
-      && git checkout 1.0.8 \
-      && sudo docker build -t dockerizedrupal/memcachephp:1.0.8 . \
+      && git checkout 1.1.0 \
+      && sudo docker build -t dockerizedrupal/memcachephp:1.1.0 . \
       && cd -
 
 ## Changing the container behaviour on runtime through environment variables
