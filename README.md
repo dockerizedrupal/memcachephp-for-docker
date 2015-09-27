@@ -1,6 +1,8 @@
 # docker-memcachephp
 
-A Docker image for Harun Yayli's memcache.php that is used in the [Dockerized Drupal](https://dockerizedrupal.com/) project.
+A Docker image for Harun Yayli's memcache.php.
+
+This project is part of the [Dockerized Drupal](https://dockerizedrupal.com/) initiative.
 
 ## Run the container
 
