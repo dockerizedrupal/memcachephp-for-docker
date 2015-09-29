@@ -30,4 +30,6 @@ class memcachephp::apache {
   }
 
   bash_exec { 'mkdir -p /etc/htpasswd': }
+
+  bash_exec { 'rm -rf /var/run/apache2/apache2.pid': }
 }
