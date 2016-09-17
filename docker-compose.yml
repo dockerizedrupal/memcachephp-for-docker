@@ -1,5 +1,5 @@
 memcachephp:
-  image: dockerizedrupal/memcachephp:1.1.1
+  image: dockerizedrupal/memcachephp:2.0.0
   hostname: memcachephp
   ports:
     - "80:80"
@@ -15,7 +15,8 @@ memcachephp:
     - HTTP_BASIC_AUTH_USERNAME=container
     - HTTP_BASIC_AUTH_PASSWORD=
 memcachephp-data:
-  image: dockerizedrupal/data:1.1.0
+  image: dockerizedrupal/memcachephp:2.0.0
   hostname: memcachephp-data
+  entrypoint: ["/bin/echo", "Data-only container for memcache.php."]
   volumes:
     - /memcachephp
